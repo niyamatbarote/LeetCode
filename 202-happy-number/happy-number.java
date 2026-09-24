@@ -11,9 +11,12 @@ class Solution {
     }
 
     public boolean isHappy(int n) {
-        while(n != 1 && n != 4) {
-            n = squaredSum(n);
+        int slow = squaredSum(n);
+        int fast = squaredSum(squaredSum(n));
+        while(slow != fast) {
+            slow = squaredSum(slow);
+            fast = squaredSum(squaredSum(fast));
         }
-        return n == 1;
+        return slow == 1;
     }
 }
