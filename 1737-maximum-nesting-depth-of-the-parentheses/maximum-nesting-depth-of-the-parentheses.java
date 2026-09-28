@@ -4,11 +4,12 @@ class Solution {
         int count = 0;
         int maxCount = 0;
         for(int i = 0; i<len; i++) {
-            if(s.charAt(i) == '(') {
+            char ch = s.charAt(i);
+            if(ch == '(') {
                 count++;
                 maxCount = Math.max(count,maxCount);
             }
-            if(s.charAt(i) == ')') {
+            if(ch == ')') {
                 count--;
             }
         }
