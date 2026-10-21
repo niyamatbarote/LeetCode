@@ -1,5 +1,8 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
+
+        if (s.length() != t.length()) return false;
+
         HashMap<Character,Integer> mapS = new HashMap<>();
         HashMap<Character,Integer> mapT = new HashMap<>();
 
@@ -13,9 +16,9 @@ class Solution {
         }
 
         // Both HashMap Size Check :
-        if (mapT.size() != mapS.size()) {
-            return false;
-        }
+        // if (mapT.size() != mapS.size()) {
+        //     return false;
+        // }
 
         for (Map.Entry<Character,Integer> e: mapS.entrySet()) {
             char temp = e.getKey();
