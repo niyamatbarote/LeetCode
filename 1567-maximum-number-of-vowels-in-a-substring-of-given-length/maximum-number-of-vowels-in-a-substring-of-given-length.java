@@ -1,50 +1,35 @@
 class Solution {
 
     public boolean isVowel(char c) {
-            return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+        return c=='a' || c=='e' || c=='i' || c=='o' || c=='u';
     }
-        
 
     public int maxVowels(String s, int k) {
-
-        StringBuilder sb = new StringBuilder(s);
-
-        int n = sb.length();
+        int n = s.length();
 
         // Base Case :
         if(k>n || k==0) {
             return 0;
         }
 
-        int currWindowCount = 0;
-        // Window Creation :
-        StringBuilder window = new StringBuilder(sb.substring(0,k-1));
-        for(int i = 0; i<k; i++) {
-            char ch = sb.charAt(i);
-            if( isVowel(ch) ) {
-                currWindowCount++;
+        // Window Fixing :
+        int currCount = 0;
+        for(int i=0; i<k; i++) {
+            if(isVowel(s.charAt(i))) {
+                currCount++;
             }
         }
 
-        // Sliding Window :
-        int max = currWindowCount;
-        for(int i = k; i<n ; i++) {
-            char prev = sb.charAt(i-k);
-            char curr = sb.charAt(i);
-            if (isVowel(prev)) {
-                currWindowCount--;
-            }
-            if(isVowel(curr)) {
-                currWindowCount++;
-            }
-            window.append(curr);
-            window.deleteCharAt(0);
-
-            max = Math.max(max,currWindowCount);
-            if(max==k) {
-                return max;
-            }
+        // Sliding The Window:
+        int maxCount = currCount;
+        for(int i =k; i<n; i++) {
+            char first = s.charAt(i-k);
+            char last = s.charAt(i);
+            if(isVowel(first)) currCount--;
+            if(isVowel(last)) currCount++;
+            maxCount = Math.max(currCount, maxCount);
+            if(maxCount==k) return maxCount;
         }
-        return max;
+        return maxCount;
     }
 }
