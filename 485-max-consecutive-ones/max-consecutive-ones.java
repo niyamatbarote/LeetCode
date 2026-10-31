@@ -6,8 +6,7 @@ class Solution {
         int cc = 0;
         int mc = 0;
         for(int i=0; i<n; i++) {
-            int num = arr[i];
-            if(num == 1) {
+            if(arr[i] == 1) {
                 cc++;
             } else {
                 cc = 0;
