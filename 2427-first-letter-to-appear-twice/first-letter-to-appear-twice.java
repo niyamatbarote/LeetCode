@@ -1,13 +1,13 @@
 class Solution {
     public char repeatedCharacter(String s) {
-        int[] arr = new int[26];
+        Set<Character> set = new HashSet<>();
 
-        // Freq Checking Linearly :
-        for(int i =0; i<s.length(); i++) {
-            arr[s.charAt(i) - 'a']++;
-            if ( arr[s.charAt(i) - 'a'] == 2 ) {
-                return s.charAt(i);
+        for(int i=0; i<s.length(); i++) {
+            char ch = s.charAt(i);
+            if(set.contains(ch)) {
+                return ch;
             }
+            set.add(ch);
         }
         return 'a';
     }
