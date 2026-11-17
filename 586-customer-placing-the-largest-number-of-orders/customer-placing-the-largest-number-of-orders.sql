@@ -1,0 +1,13 @@
+# Write your MySQL query statement below
+SELECT CUSTOMER_NUMBER
+FROM ORDERS
+GROUP BY CUSTOMER_NUMBER
+ORDER BY COUNT(ORDER_NUMBER) DESC
+LIMIT 1;
+
+
+
+-- (SELECT MAX(CUSTOMER_NUMBER)
+--                             FROM ORDERS
+--                             GROUP BY CUSTOMER_NUMBER
+--                             );
