@@ -4,8 +4,8 @@ class Solution {
 
     public int addedInteger(int[] arr1, int[] arr2) {
         
-        int min1 = Integer.MAX_VALUE;
-        int min2 = Integer.MAX_VALUE;
+        int min1 = arr1[0];
+        int min2 = arr2[0];
 
         for(int i=0; i<arr1.length; i++) {
             if(arr1[i]<min1) {
