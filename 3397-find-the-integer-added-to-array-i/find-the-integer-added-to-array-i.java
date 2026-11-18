@@ -7,7 +7,7 @@ class Solution {
         int min1 = arr1[0];
         int min2 = arr2[0];
 
-        for(int i=0; i<arr1.length; i++) {
+        for(int i=1; i<arr1.length; i++) {
             min1= Math.min(arr1[i],min1);
             min2= Math.min(arr2[i],min2);
         }
