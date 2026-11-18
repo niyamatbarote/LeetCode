@@ -8,12 +8,8 @@ class Solution {
         int min2 = arr2[0];
 
         for(int i=0; i<arr1.length; i++) {
-            if(arr1[i]<min1) {
-                min1 = arr1[i];
-            }
-            if(arr2[i]<min2) {
-                min2 = arr2[i];
-            }
+            min1= Math.min(arr1[i],min1);
+            min2= Math.min(arr2[i],min2);
         }
         // Diffn b/w min2-min1 :
         return min2-min1;
